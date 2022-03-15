@@ -43,7 +43,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - bitbucket
+              - git.aktia.biz
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -62,9 +62,9 @@ spec:
       name: Publish
       action: publish:bitbucket
       input:
-        allowedHosts: ["bitbucket"]
+        allowedHosts: ["git.aktia.biz"]
         description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: projects/DP/repos${{ parameters.repoUrl }}
 
     - id: register
       name: Register
