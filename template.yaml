@@ -64,7 +64,7 @@ spec:
       input:
         allowedHosts: ["git.aktia.biz"]
         description: This is ${{ parameters.component_id }}
-        repoUrl: projects/DP/repos${{ parameters.repoUrl }}
+        repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
       name: Register
