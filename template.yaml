@@ -43,7 +43,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.com
+              - bitbucket
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -60,9 +60,9 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:github
+      action: publish:bitbucket
       input:
-        allowedHosts: ["github.com"]
+        allowedHosts: ["bitbucket"]
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
 
