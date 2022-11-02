@@ -44,16 +44,6 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.com	    - title: Choose a location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
               - github.com
   steps:
     - id: template
