@@ -30,10 +30,31 @@ spec:
           title: Owner
           type: string
           description: Owner of the project
-          #ui:field: OwnerPicker
-          #ui:options:
-          #  allowedKinds:
-          #    - Group
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com	    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
   steps:
     - id: template
       name: Fetch Skeleton + Template
