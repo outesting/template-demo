@@ -1,49 +1,39 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: dummy-template
-  title: Dummy Template
-  description: Create a website powered with Next.js
+  name: python-project
+  title: Python Project
+  description: Create a Python project with a CI/CD pipeline
   tags:
-    - recommended
-    - react
+    - python
+    - repository
 spec:
-  owner: web@example.com
-  type: website
+  owner: andy@tanuu.fi
+  type: repository
   parameters:
     - title: Provide some simple information
       required:
         - component_id
+        - description
         - owner
       properties:
         component_id:
           title: Name
           type: string
-          description: Unique name of the component
-          ui:field: EntityNamePicker
+          description: Name of the project
+          #ui:field: EntityNamePicker
         description:
           title: Description
           type: string
-          description: Help others understand what this website is for.
+          description: Describe your project
         owner:
           title: Owner
           type: string
-          description: Owner of the component
-          ui:field: OwnerPicker
-          ui:options:
-            allowedKinds:
-              - Group
-    - title: Choose a location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+          description: Owner of the project
+          #ui:field: OwnerPicker
+          #ui:options:
+          #  allowedKinds:
+          #    - Group
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -74,5 +64,9 @@ spec:
         catalogInfoPath: "/catalog-info.yaml"
 
   output:
-    remoteUrl: ${{ steps.publish.output.remoteUrl }}
-    entityRef: ${{ steps.register.output.entityRef }}
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}

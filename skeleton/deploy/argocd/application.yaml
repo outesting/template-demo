@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${{ values.component_id }}-app
+  namespace: argocd
+spec:
+  destination:
+    name: talos-onprem-dev
+    namespace: ${{ values.component_id }}
+  project: ${{ values.component_id }}-project
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: deploy/resources
+    repoURL: https://github.com/punasusi/${{ values.component_id }}.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - Replace=true
