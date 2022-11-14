@@ -76,6 +76,18 @@ spec:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
 
+    - id: argo-webflow
+      name: Call Argo webhook
+       # Check the plugin documentation for all supported methods and examples:
+       # https://www.npmjs.com/package/@roadiehq/scaffolder-backend-module-http-request
+      action: http:backstage:request
+      input:
+         method: 'POST'
+         path: /api/proxy/argoevent/argocd-application-creation
+         headers:
+           content-type: 'application/json'
+         body:
+           app_name: ${{ parameters.component_id }}
   output:
     links:
       - title: Repository
