@@ -5,7 +5,7 @@ metadata:
   namespace: argo
 spec:
   destination:
-    name: talos-onprem-dev
+    name: local
     namespace: ${{ values.component_id }}
   project: ${{ values.component_id }}-project
   source:
