@@ -13,7 +13,7 @@ spec:
       jsonnet: {}
       recurse: true
     path: deploy/resources
-    repoURL: https://github.com/punasusi/${{ values.component_id }}.git
+    repoURL: https://github.com/tanuudemo/${{ values.component_id }}.git
     targetRevision: HEAD
   syncPolicy:
     automated:
