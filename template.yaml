@@ -68,6 +68,15 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
         defaultBranch: main
         repoVisibility: public
+        
+    - id: publishDeploy
+      name: PublishDeploy
+      action: publish:github:pull-request
+      input:
+        description: Adding deploy branch for ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
+        branchName: deploy
+        title: Deploy branch
 
     - id: register
       name: Register
