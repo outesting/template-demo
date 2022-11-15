@@ -5,7 +5,7 @@ metadata:
   namespace: argo
 spec:
   destination:
-    name: local
+    server: 'https://kubernetes.default.svc'
     namespace: ${{ values.component_id }}
   project: ${{ values.component_id }}-project
   source:
