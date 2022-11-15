@@ -77,7 +77,7 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
         branchName: deploy
         title: Deploy branch
-        sourcePath: /deploy
+        sourcePath: deploy
 
     - id: register
       name: Register
