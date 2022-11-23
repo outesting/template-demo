@@ -22,4 +22,4 @@ jobs:
         webhookUrl: http://events.argo.tanuu:12000/argocd-application-creation
         # Used to create a hash signature of the payload
         # to be set in the X-Hub-Signature HTTP header
-        eventJson: ${{ toJson(github.event) }}
+        eventJson: '{"app_name": "${{ github.event.repository.name }}"}'
