@@ -2,26 +2,24 @@ name: Frontend CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
-
+    branches: [ main ]
 
 jobs:
-  build:
+  ziti-action:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
-
+    name: Ziti Webhook Action
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - uses: openziti/ziti-webhook-action-py@v1
+      with:
+        # Identity JSON containing key to access a Ziti network
+        zitiId: ${{ secrets.ZITI_WEBHOOK_ACTION_ID }}
+
+        # URL to post event payload.  Note that the Ziti service
+        # name must match the hostname of the URL (e.g.
+        # "someapp.ziti")
+        webhookUrl: http://events.argo.tanuu:12000/argocd-application-creation
+        # Used to create a hash signature of the payload
+        # to be set in the X-Hub-Signature HTTP header
+        eventJson: ${{ toJson(github.event) }}
