@@ -5,8 +5,8 @@ metadata:
   title: Python Project
   description: Create a Python project with a CI/CD pipeline
   tags:
+    - recommended
     - python
-    - repository
 spec:
   owner: andy@tanuu.fi
   type: repository
