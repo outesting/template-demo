@@ -15,10 +15,10 @@ spec:
     spec:
       containers:
         - name: ${{ values.component_id }}
-          image: docker.com:8083/punasusi/${{ values.component_id }}:0.0.0
+          image: docker.io/tanuuidp/demo:0.0.1
           ports:
             - name: http
-              containerPort: 9000
+              containerPort: 80
               protocol: TCP
           resources:
             limits:
@@ -27,5 +27,3 @@ spec:
             requests:
               cpu: 200m
               memory: 256M
-      imagePullSecrets:
-        - name: regcred

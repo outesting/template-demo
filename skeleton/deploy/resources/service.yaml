@@ -6,6 +6,9 @@ spec:
   selector:
     app: ${{ values.component_id }}
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9000
+  - name: web
+    nodePort: 30084
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  type: NodePort
