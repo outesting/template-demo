@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: python-project
+  name: test-project
   title: TEST Project
   description: Create a Python project with a CI/CD pipeline
   tags:
