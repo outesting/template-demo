@@ -29,9 +29,9 @@ spec:
           type: string
           description: Describe your project
         repoproject:
-          title: Github org/user
+          title: Github user
           type: string
-          description: github.com/THISPART/name
+          description: Github user, i.e. tanuuidp in github.com/tanuuidp/tanuu. This is where the tempalated apps will be created.
         owner:
           title: Owner
           type: string
