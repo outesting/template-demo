@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: python-project
-  title: Python Project
+  name: test-project
+  title: TEST Project
   description: Create a Python project with a CI/CD pipeline
   tags:
     - recommended
@@ -16,16 +16,22 @@ spec:
         - component_id
         - description
         - owner
+        - repoproject
       properties:
         component_id:
           title: Name
           type: string
           description: Name of the project
+          pattern: '^([a-zA-Z][a-zA-Z0-9]*)*$'
           #ui:field: EntityNamePicker
         description:
           title: Description
           type: string
           description: Describe your project
+        repoproject:
+          title: Github org/user
+          type: string
+          description: github.com/THISPART/name
         owner:
           title: Owner
           type: string
@@ -45,7 +51,7 @@ spec:
         values:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
-          destination: https://github.com/tanuudemo/${{ parameters.component_id }}
+          destination: https://github.com/${{ parameters.repoproject }}/${{ parameters.component_id }}
           owner: ${{ parameters.owner }}
 
     - id: publish
