@@ -60,7 +60,7 @@ spec:
       input:
         allowedHosts: ["github.com"]
         description: This is ${{ parameters.component_id }}
-        repoUrl: 'github.com?repo=${{ parameters.component_id }}&owner=tanuudemo'
+        repoUrl: 'github.com?repo=${{ parameters.component_id }}&owner=${{ parameters.repoproject }}'
         defaultBranch: main
         repoVisibility: public
     - id: argo-webflow
