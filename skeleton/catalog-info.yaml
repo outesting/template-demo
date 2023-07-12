@@ -6,7 +6,7 @@ metadata:
   description: ${{values.description | dump}}
   {%- endif %}
   annotations:
-    github.com/project-slug: tanuudemo/${{values.component_id }}
+    github.com/project-slug: outesting/${{values.component_id }}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: repository
