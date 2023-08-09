@@ -21,6 +21,7 @@ jobs:
       ENTITY_NAMESPACE: 'default'
       ENTITY_KIND: 'Component'
       ENTITY_NAME: 'my-doc-entity'
+      ENTITY_NAME: ${{values.component_id}}
       # In a Software template, Scaffolder will replace {{cookiecutter.component_id | jsonify}}
       # with the correct entity name. This is same as metadata.name in the entity's catalog-info.yaml
       # ENTITY_NAME: '{{ cookiecutter.component_id | jsonify }}'
