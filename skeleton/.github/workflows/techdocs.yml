@@ -15,9 +15,11 @@ jobs:
     # The following secrets are required in your CI environment for publishing files to AWS S3.
     # e.g. You can use GitHub Organization secrets to set them for all existing and new repositories.
     env:
-      TECHDOCS_S3_BUCKET_NAME: ${{ secrets.TECHDOCS_S3_BUCKET_NAME }}
+      {% raw %}
+      TECHDOCS_BLOB_STORAGE_NAME: ${{ secrets.TECHDOCS_BLOB_STORAGE_NAME }}
       AZURE_ACCOUNT_NAME: ${{ secrets.AZURE_ACCOUNT_NAME }}
       AZURE_ACCOUNT_KEY: ${{ secrets.AZURE_ACCOUNT_KEY }}
+      {% endraw %}
       ENTITY_NAMESPACE: 'default'
       ENTITY_KIND: 'Component'
       # ENTITY_NAME: 'my-doc-entity'
@@ -45,5 +47,5 @@ jobs:
         run: techdocs-cli generate --no-docker --verbose
 
       - name: Publish docs site
-        # run: techdocs-cli publish --publisher-type azureBlobStorage --azureAccountName $AZURE_ACCOUNT_NAME --azureAccountKey $AZURE_ACCOUNT_KEY --storage-name $TECHDOCS_S3_BUCKET_NAME --entity $ENTITY_NAMESPACE/$ENTITY_KIND/$ENTITY_NAME
-        run: techdocs-cli publish --publisher-type azureBlobStorage --azureAccountName $AZURE_ACCOUNT_NAME --azureAccountKey $AZURE_ACCOUNT_KEY --storage-name $TECHDOCS_S3_BUCKET_NAME --entity 'default'/'Component'/'${{values.component_id}}'
+        run: techdocs-cli publish --publisher-type azureBlobStorage --azureAccountName $AZURE_ACCOUNT_NAME --azureAccountKey $AZURE_ACCOUNT_KEY --storage-name $TECHDOCS_S3_BUCKET_NAME --entity $ENTITY_NAMESPACE/$ENTITY_KIND/$ENTITY_NAME
+        # run: techdocs-cli publish --publisher-type azureBlobStorage --azureAccountName $AZURE_ACCOUNT_NAME --azureAccountKey $AZURE_ACCOUNT_KEY --storage-name $TECHDOCS_S3_BUCKET_NAME --entity 'default'/'Component'/'${{values.component_id}}'
