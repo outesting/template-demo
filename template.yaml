@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: test-project
   title: Test project with TechDocs
-  description: Create a Python project with a CI/CD pipeline
+  description: Create a Python project with a CI/CD pipeline and production version of TechDocs
   tags:
     - recommended
     - python
